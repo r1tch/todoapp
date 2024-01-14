@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import './App.css'
 import { Container, TextField, Button, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import Checkbox from '@mui/material/Checkbox'
+import Paper from '@mui/material/Paper'
+
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn'
 
 function App () {
   const [todos, setTodos] = useState([])
@@ -28,23 +30,30 @@ function App () {
   }
 
   return (
-    <Container maxWidth="sm">
-      <h1>Todo App</h1>
-      <TextField
-        label="Add a new task"
-        variant="outlined"
-        fullWidth
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
+    <Paper elevation={3} style={{ padding: '20px', margin: '20px auto', maxWidth: '600px' }}>
+
+      <h1>
+        <AssignmentTurnedInIcon style={{ fontSize: 40, color: 'primary' }} />
+        &nbsp;Todo App
+      </h1>
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+
+        <TextField
+          label="Add a new task"
+          variant="outlined"
+          fullWidth
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
         />
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleAddTodo}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddTodo}
       >
-        Add
-      </Button>
+          Add
+        </Button>
+      </div>
       <List>
 
         {todos.map((todo, index) => (
@@ -55,7 +64,7 @@ function App () {
               tabIndex={-1}
               disableRipple
             />
-            <ListItemText primary={todo.text} />
+            <ListItemText primary={todo.text} style={{ textDecoration: todo.isCompleted ? 'line-through' : 'none' }} />
             <ListItemSecondaryAction>
               <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(index)}>
                 <DeleteIcon />
@@ -65,7 +74,7 @@ function App () {
         ))}
       </List>
 
-    </Container>
+    </Paper>
 
   )
 }

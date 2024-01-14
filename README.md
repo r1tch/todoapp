@@ -1,8 +1,11 @@
-# React + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Test and learning project, mostly built using GitHub CoPilot and ChatGPT.
 
-Currently, two official plugins are available:
+## TODO
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [ ] Firestore to store items
+- [ ] Authentication
+- [ ] Admin UI (user admin, admin-mode to edit items)
+- [ ] Cypress testing
+- [ ] Possibly re-do with [NX](https://nx.dev), all trinkets included.
